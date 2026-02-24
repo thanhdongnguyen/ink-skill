@@ -50,6 +50,7 @@ Component, hook, and concept references in `./references/<area>/` have `REFERENC
    - Testing -> `testing/REFERENCE.md`
    - Accessibility -> `accessibility/REFERENCE.md`
    - Troubleshooting -> `core/gotchas.md`
+   - **Best practices / rules** -> `rules/RULES.md` + specific rule files
 
 ### Example Paths
 
@@ -61,6 +62,11 @@ Component, hook, and concept references in `./references/<area>/` have `REFERENC
 ./references/hooks/input.md                # useInput hook
 ./references/layout/patterns.md            # Common layout recipes
 ./references/testing/REFERENCE.md          # ink-testing-library
+./rules/RULES.md                           # Best practices entry point
+./rules/performance.md                     # FPS, Static, memoization
+./rules/components.md                      # Per-component rules
+./rules/hooks.md                           # Per-hook rules
+./rules/core.md                            # render(), errors, environment
 ```
 
 ## Quick Decision Trees
@@ -152,7 +158,18 @@ Troubleshooting?
 ├─ Process not exiting -> core/gotchas.md
 ├─ CI rendering issues -> core/configuration.md (CI mode)
 ├─ Console output mixing -> core/configuration.md (patchConsole)
-└─ Performance/flickering -> core/configuration.md (incrementalRendering, maxFps)
+└─ Performance/flickering -> core/configuration.md + rules/performance.md
+```
+
+### "I want best practices / production-ready code"
+
+```
+Best practices?
+├─ General rules (critical) -> rules/RULES.md
+├─ Performance (FPS, Static, memoization) -> rules/performance.md
+├─ Per-component patterns & anti-patterns -> rules/components.md
+├─ Per-hook patterns & gotchas -> rules/hooks.md
+└─ render() / errors / environment behavior -> rules/core.md
 ```
 
 ### Troubleshooting Index
@@ -162,10 +179,11 @@ Troubleshooting?
 - Process hanging/not exiting -> `core/gotchas.md`
 - Console.log mixing with output -> `core/configuration.md`
 - Layout misalignment -> `layout/REFERENCE.md`
-- Input not received -> `hooks/input.md`
-- Focus not cycling -> `hooks/focus.md`
-- CI output issues -> `core/configuration.md`
-- Flickering/performance -> `core/configuration.md`
+- Input not received -> `hooks/input.md` + `rules/hooks.md`
+- Focus not cycling -> `hooks/focus.md` + `rules/hooks.md`
+- CI output issues -> `core/configuration.md` + `rules/core.md`
+- Flickering/performance -> `core/configuration.md` + `rules/performance.md`
+- Anti-patterns / pitfalls -> `rules/components.md`, `rules/hooks.md`, `rules/core.md`
 
 ## Product Index
 
@@ -202,6 +220,15 @@ Troubleshooting?
 | Layout Patterns | `./references/layout/patterns.md` | Common layout recipes |
 | Testing | `./references/testing/REFERENCE.md` | ink-testing-library |
 | Accessibility | `./references/accessibility/REFERENCE.md` | Screen reader & ARIA support |
+
+### Best Practices (Rules)
+| Rule File | Entry File | Description |
+|-----------|------------|-------------|
+| Overview | `./rules/RULES.md` | Entry point + 10 critical rules |
+| Performance | `./rules/performance.md` | FPS tuning, Static, memoization, incremental rendering |
+| Components | `./rules/components.md` | Box, Text, Static, Transform, Newline, Spacer rules |
+| Hooks | `./rules/hooks.md` | useInput, useApp, useFocus, useCursor, useStdin rules |
+| Core | `./rules/core.md` | render(), renderToString(), errors, CI, Kitty protocol |
 
 ## Resources
 
